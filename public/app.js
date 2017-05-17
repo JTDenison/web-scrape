@@ -44,7 +44,7 @@ $(document).on("click", "p", function() {
 
 // When you click the savenote button
 $(document).on("click", "#savenote", function() {
-  // Grab the id associated with the article from the submit button
+  // Grab the id with the article 
   var thisId = $(this).attr("data-id");
 
   // Run a POST request to change the note, using what's entered in the inputs
@@ -58,15 +58,14 @@ $(document).on("click", "#savenote", function() {
       body: $("#bodyinput").val()
     }
   })
-    // With that done
+    // .donfucntion
     .done(function(data) {
-      // Log the response
+      // Log data
       console.log(data);
-      // Empty the notes section
+      // Empty the notes 
       $("#notes").empty();
     });
 
-  // Also, remove the values entered in the input and textarea for note entry
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });

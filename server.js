@@ -45,13 +45,13 @@ db.once("open", function() {
 
 // Main route (simple Hello World Message)
 app.get("/", function(req, res) {
-    res.send("Hello, User!");
+    res.send("Welcome to the Matrix... follow the white rabbit");
 });
 
 // A GET request to scrape the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  request("https://www.reddit.com", function(error, response, html) {
+  request("https://www.reddit.com/r/cybersecurity/", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     // Now, we grab every title within an p tag, and do the following:
@@ -83,7 +83,7 @@ app.get("/scrape", function(req, res) {
     });
   });
   // Tell the browser that we finished scraping the text
-     res.send("Your news belongs to Mongo.");
+     res.send("You've been mongo'ed");
 });
 
 // This will get the articles we scraped from the mongoDB
